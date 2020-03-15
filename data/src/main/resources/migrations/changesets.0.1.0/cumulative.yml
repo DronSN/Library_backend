@@ -1,0 +1,9 @@
+databaseChangeLog:
+  -   changeSet:
+        id     : 1
+        author : askvortsov
+        comment: Create user's table
+        changes:
+          -   sqlFile:
+                path                   : LIBRARY-001.sql
+                relativeToChangelogFile: true

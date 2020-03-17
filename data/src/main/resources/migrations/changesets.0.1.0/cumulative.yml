@@ -7,3 +7,11 @@ databaseChangeLog:
           -   sqlFile:
                 path                   : LIBRARY-001.sql
                 relativeToChangelogFile: true
+  -   changeSet:
+        id     : 2
+        author : askvortsov
+        comment: Create book's table
+        changes:
+          -   sqlFile:
+                path                   : LIBRARY-002.sql
+                relativeToChangelogFile: true

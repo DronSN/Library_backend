@@ -8,5 +8,6 @@ spring :
     password: Prolet1977
     username: postgres
 mybatis:
+  type-handlers-package: ru.relex.library.db.handlers
   configuration:
     map-underscore-to-camel-case: true

@@ -3,6 +3,7 @@ package ru.relex.library.db.model;
 import ru.relex.commons.model.Role;
 
 public class User {
+
     private int id;
     private String firstName;
     private String lastName;

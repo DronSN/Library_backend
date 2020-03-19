@@ -4,15 +4,16 @@ import org.apache.ibatis.annotations.*;
 import ru.relex.library.db.model.User;
 
 import java.util.List;
+
 @Mapper
 public interface UserMapper {
+
     @Select(
             //language=PostgreSQL
             "SELECT " +
                     "user_id AS id," +
                     "first_name, " +
                     "last_name, " +
-                    "middle_name, " +
                     "username, " +
                     "role_id as role " +
                     "FROM users u " +
@@ -25,7 +26,6 @@ public interface UserMapper {
             "user_id AS id," +
             "first_name, " +
             "last_name, " +
-            "middle_name, " +
             "username, " +
             "role_id as role " +
             "FROM users u " +
@@ -36,7 +36,6 @@ public interface UserMapper {
             "SET first_name = #{firstName}," +
             "last_name = #{lastName}," +
             "username = #{username}," +
-            "middle_name = #{middleName}," +
             "password = #{password}," +
             "role_id = #{role} " +
             "WHERE user_id = #{id}")
@@ -51,8 +50,8 @@ public interface UserMapper {
      *
      * @param user
      */
-    @Insert("INSERT INTO users (first_name, last_name, middle_name, username, password, role_id) " +
-            "VALUES(#{firstName}, #{lastName}, #{middleName}, #{username}, #{password}, #{role})")
+    @Insert("INSERT INTO users (first_name, last_name, username, password, role_id) " +
+            "VALUES(#{firstName}, #{lastName}, #{username}, #{password}, #{role})")
     @SelectKey(
             before = false,
             keyProperty = "id",

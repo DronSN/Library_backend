@@ -1,11 +1,13 @@
 package ru.relex.library.db.model;
 
+import ru.relex.commons.model.Role;
+
 public class User {
     private int id;
     private String firstName;
     private String lastName;
     private String middleName;
-    private int role;
+    private Role role;
     private String username;
     private String password;
 
@@ -41,11 +43,11 @@ public class User {
         this.middleName = middleName;
     }
 
-    public int getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(final int role) {
+    public void setRole(final Role role) {
         this.role = role;
     }
 

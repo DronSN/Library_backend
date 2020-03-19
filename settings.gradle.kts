@@ -1,3 +1,9 @@
 rootProject.name = "library"
-include("services",
-        "data")
+
+include(
+        "services",
+        "data"
+)
+
+includeBuild("commons")
+include("security")

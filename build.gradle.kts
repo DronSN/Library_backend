@@ -1,5 +1,8 @@
+import org.springframework.boot.gradle.tasks.bundling.BootJar
+
 plugins {
     java
+    id("org.springframework.boot") version "2.2.5.RELEASE"
 }
 
 allprojects {
@@ -8,7 +11,7 @@ allprojects {
         plugin("java")
     }
 
-    group = "ru.relex"
+    group = "org.example"
     version = "1.0-SNAPSHOT"
 
     configure<JavaPluginConvention> {
@@ -18,11 +21,27 @@ allprojects {
     repositories {
         mavenCentral()
     }
+
+    dependencies {
+        implementation("ru.relex:library-commons:1.0")
+    }
 }
 
 
 dependencies {
-    implementation(project(":data"))
+    implementation(project(":services"))
+    implementation(project(":security"))
     implementation("org.springframework.boot:spring-boot-starter-web:2.2.5.RELEASE")
     testCompile("junit", "junit", "4.12")
+}
+
+springBoot {
+    mainClassName = "ru.relex.library.rest.LibraryApp"
+}
+
+
+val bootJar: BootJar by tasks
+
+bootJar.apply {
+    launchScript()
 }

@@ -15,3 +15,11 @@ databaseChangeLog:
           -   sqlFile:
                 path                   : LIBRARY-002.sql
                 relativeToChangelogFile: true
+  -   changeSet:
+        id     : 3
+        author : askvortsov
+        comment: Added tables data for testing
+        changes:
+          -   sqlFile:
+                path                   : LIBRARY-003.sql
+                relativeToChangelogFile: true

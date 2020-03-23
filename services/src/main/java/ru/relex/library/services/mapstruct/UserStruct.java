@@ -13,6 +13,7 @@ public interface UserStruct {
   @Mapping(target = "personalInfo.firstName", source = "firstName")
   @Mapping(target = "personalInfo.lastName", source = "lastName")
   @Mapping(target = "personalInfo.middleName", source = "middleName")
+  @Mapping(target = "password", ignore = true)
   UserDto toDto(User user);
 
   @Mapping(target = "firstName", source = "personalInfo.firstName")

@@ -1,6 +1,5 @@
 package ru.relex.library.services.service.impl;
 
-import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
@@ -10,6 +9,7 @@ import ru.relex.library.services.mapstruct.UserStruct;
 import ru.relex.library.services.service.IPasswordEncoderService;
 import ru.relex.library.services.service.IUserService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Service
@@ -48,6 +48,12 @@ public class UserServiceImpl implements IUserService {
   public UserDto update(@Valid final UserDto userDto) {
     var user = userStruct.fromDto(userDto);
     userMapper.update(user);
+    return userStruct.toDto(user);
+  }
+
+  @Override
+  public UserDto findById(int id) {
+    var user = userMapper.findById(id);
     return userStruct.toDto(user);
   }
 

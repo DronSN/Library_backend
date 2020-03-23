@@ -18,6 +18,8 @@ public final class ConstraintMessage {
         public static final String ROLE = "ROLE";
         public static final String MIDDLE_NAME = "MIDDLENAME";
         public static final String PERSONAL_INFO = "PERSONALINFO";
+        public static final String NAME = "NAME";
+        public static final String AUTHOR = "AUTHOR";
     }
 
     public static class Constraint {

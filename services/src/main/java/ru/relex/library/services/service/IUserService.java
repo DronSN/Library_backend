@@ -1,8 +1,8 @@
 package ru.relex.library.services.service;
 
-import javax.validation.Valid;
 import ru.relex.library.services.dto.user.UserDto;
 
+import javax.validation.Valid;
 import java.util.List;
 
 public interface IUserService {
@@ -12,6 +12,8 @@ public interface IUserService {
   UserDto create(@Valid UserDto userDto);
 
   UserDto update(@Valid UserDto userDto);
+
+  UserDto findById(int id);
 
   void remove(int userId);
 

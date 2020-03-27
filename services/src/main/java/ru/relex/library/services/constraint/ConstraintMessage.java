@@ -20,6 +20,13 @@ public final class ConstraintMessage {
         public static final String PERSONAL_INFO = "PERSONALINFO";
         public static final String NAME = "NAME";
         public static final String AUTHOR = "AUTHOR";
+        public static final String BOOKS_ID = "BOOKSID";
+        public static final String EDITION = "EDITION";
+        public static final String FORMAT = "FORMAT";
+        public static final String PUBLISHYEAR = "PUBLISHYEAR";
+        public static final String PUBLISHER = "PUBLISHER";
+        public static final String TOTALAMOUNT = "TOTALAMOUNT";
+        public static final String FREEAMOUNT = "FREEAMOUNT";
     }
 
     public static class Constraint {
@@ -30,5 +37,6 @@ public final class ConstraintMessage {
         public static final String IS_EMPTY = "_EMPTY";
         public static final String TOO_LONG = "_TOOLONG";
         public static final String TOO_SHORT = "_TOOSHORT";
+        public static final String NOT_POSITIVE = "_NOTPOSITIVE";
     }
 }

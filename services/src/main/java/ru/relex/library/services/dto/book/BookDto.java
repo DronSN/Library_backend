@@ -1,6 +1,7 @@
 package ru.relex.library.services.dto.book;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import static ru.relex.library.services.constraint.ConstraintMessage.Constraint;
 import static ru.relex.library.services.constraint.ConstraintMessage.Field;
@@ -8,16 +9,22 @@ import static ru.relex.library.services.constraint.ConstraintMessage.Field;
 public class BookDto {
 
   private Integer id;
+
+  @Size(max = 30)
   private String isbn;
 
   @NotBlank(message = Field.NAME + Constraint.IS_EMPTY)
+  @Size(max = 100)
   private String name;
 
+  @Size(max = 50)
   private String genre;
 
   @NotBlank(message = Field.AUTHOR + Constraint.IS_EMPTY)
+  @Size(max = 50)
   private String author;
 
+  @Size(max = 4)
   private String year;
 
   public Integer getId() {

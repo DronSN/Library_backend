@@ -39,5 +39,6 @@ public final class ConstraintMessage {
         public static final String TOO_LONG = "_TOOLONG";
         public static final String TOO_SHORT = "_TOOSHORT";
         public static final String NOT_POSITIVE = "_NOTPOSITIVE";
+        public static final String NOT_FINDED = "_NOTFINDED";
     }
 }

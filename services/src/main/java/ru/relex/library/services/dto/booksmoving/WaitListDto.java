@@ -3,6 +3,8 @@ package ru.relex.library.services.dto.booksmoving;
 import ru.relex.library.services.constraint.ConstraintMessage;
 import ru.relex.library.services.dto.book.BookDto;
 import ru.relex.library.services.dto.user.UserDto;
+import ru.relex.library.services.validator.BookPresent;
+import ru.relex.library.services.validator.UserPresent;
 
 import javax.validation.constraints.Positive;
 import java.time.Instant;
@@ -11,9 +13,11 @@ public class WaitListDto {
     private int id;
 
     @Positive(message = ConstraintMessage.Field.BOOKS_ID + ConstraintMessage.Constraint.NOT_POSITIVE)
+    @BookPresent
     private int booksId;
 
     @Positive(message = ConstraintMessage.Field.USER_ID + ConstraintMessage.Constraint.NOT_POSITIVE)
+    @UserPresent
     private int UserId;
 
     private Instant createdAt;

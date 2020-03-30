@@ -28,6 +28,8 @@ public final class ConstraintMessage {
         public static final String TOTALAMOUNT = "TOTALAMOUNT";
         public static final String FREEAMOUNT = "FREEAMOUNT";
         public static final String USER_ID = "USERID";
+        public static final String RANK = "RANK";
+        public static final String REVIEW = "REVIEW";
     }
 
     public static class Constraint {

@@ -1,6 +1,6 @@
 package ru.relex.library.services.service;
 
-import ru.relex.library.services.dto.paperbook.PaperBookDto;
+import ru.relex.library.services.dto.book.PaperBookDto;
 
 import javax.validation.Valid;
 import java.util.List;

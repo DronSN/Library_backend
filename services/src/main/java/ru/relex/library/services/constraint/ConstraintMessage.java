@@ -27,6 +27,7 @@ public final class ConstraintMessage {
         public static final String PUBLISHER = "PUBLISHER";
         public static final String TOTALAMOUNT = "TOTALAMOUNT";
         public static final String FREEAMOUNT = "FREEAMOUNT";
+        public static final String USER_ID = "USERID";
     }
 
     public static class Constraint {

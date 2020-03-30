@@ -1,8 +1,9 @@
-package ru.relex.library.services.dto.paperbook;
+package ru.relex.library.services.dto.book;
 
-import ru.relex.library.services.dto.book.BookDto;
-
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.Size;
 
 import static ru.relex.library.services.constraint.ConstraintMessage.Constraint;
 import static ru.relex.library.services.constraint.ConstraintMessage.Field;

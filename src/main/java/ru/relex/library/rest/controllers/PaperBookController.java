@@ -3,7 +3,7 @@ package ru.relex.library.rest.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import ru.relex.library.services.dto.paperbook.PaperBookDto;
+import ru.relex.library.services.dto.book.PaperBookDto;
 import ru.relex.library.services.service.IPaperBookService;
 
 import java.util.List;

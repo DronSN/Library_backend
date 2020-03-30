@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 import ru.relex.library.db.mappers.PaperBookMapper;
-import ru.relex.library.services.dto.paperbook.PaperBookDto;
+import ru.relex.library.services.dto.book.PaperBookDto;
 import ru.relex.library.services.mapstruct.PaperBookStruct;
 import ru.relex.library.services.service.IPaperBookService;
 

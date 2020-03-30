@@ -6,7 +6,7 @@ import org.mapstruct.MappingTarget;
 import org.springframework.beans.factory.annotation.Autowired;
 import ru.relex.library.db.mappers.BookMapper;
 import ru.relex.library.db.model.PaperBook;
-import ru.relex.library.services.dto.paperbook.PaperBookDto;
+import ru.relex.library.services.dto.book.PaperBookDto;
 
 import java.util.List;
 

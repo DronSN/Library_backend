@@ -3,12 +3,7 @@ server :
 spring :
   liquibase :
     change-log: classpath*:migrations/master-changelog.yml
-  datasource:
-    url     : jdbc:postgresql://localhost:5433/library
-    password: greentea
-    username: postgres
 mybatis:
-
   type-handlers-package: ru.relex.library.db.handlers
   configuration:
     map-underscore-to-camel-case: true

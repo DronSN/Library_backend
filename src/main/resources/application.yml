@@ -4,8 +4,8 @@ spring :
   liquibase :
     change-log: classpath*:migrations/master-changelog.yml
   datasource:
-    url     : jdbc:postgresql://localhost:5432/library
-    password: Prolet1977
+    url     : jdbc:postgresql://localhost:5433/library
+    password: greentea2
     username: postgres
 mybatis:
   type-handlers-package: ru.relex.library.db.handlers

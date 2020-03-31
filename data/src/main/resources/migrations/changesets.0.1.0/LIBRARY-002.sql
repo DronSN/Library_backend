@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS books CASCADE;
 CREATE TABLE books
 (
     books_id SERIAL PRIMARY KEY,
@@ -14,6 +15,7 @@ VALUES ('9785170438556', 'Преступление и наказание', 'Ли
        ('9785699324385', 'Граф Монте-Кристо', 'Исторические приключения',
         'Александр Дюма', '2009');
 
+DROP TABLE IF EXISTS e_book;
 CREATE TABLE e_book(
     e_book_id    SERIAL PRIMARY KEY,
     books_id     INTEGER NOT NULL,
@@ -30,6 +32,7 @@ CREATE TABLE e_book(
 
 );
 
+DROP TABLE IF EXISTS paper_book;
 CREATE TABLE paper_book(
      paper_book_id    SERIAL PRIMARY KEY,
      books_id         INTEGER NOT NULL,
@@ -45,6 +48,7 @@ CREATE TABLE paper_book(
          ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS wait_list;
 CREATE TABLE wait_list(
     wait_list_id   SERIAL PRIMARY KEY,
     books_id       INTEGER NOT NULL ,
@@ -58,6 +62,7 @@ CREATE TABLE wait_list(
         ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS book_history;
 CREATE TABLE book_history(
     book_history_id SERIAL PRIMARY KEY,
     paper_book_id   INTEGER NOT NULL,
@@ -72,6 +77,7 @@ CREATE TABLE book_history(
         ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS review;
 CREATE TABLE review(
     review_id SERIAL PRIMARY KEY,
     books_id       INTEGER NOT NULL,
@@ -88,6 +94,7 @@ CREATE TABLE review(
         ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS progress;
 CREATE TABLE progress(
     progress_id SERIAL PRIMARY KEY,
     books_id       INTEGER NOT NULL,
@@ -102,6 +109,7 @@ CREATE TABLE progress(
         ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS plan;
 CREATE TABLE plan(
   plan_id        SERIAL PRIMARY KEY,
   books_id       INTEGER NOT NULL,

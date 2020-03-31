@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS roles CASCADE;
 CREATE TABLE roles
 (
     role_id INTEGER PRIMARY KEY,
@@ -8,6 +9,7 @@ INSERT INTO roles (role_id, name)
 VALUES (1, 'ADMIN'),
        (2, 'USER');
 
+DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users
 (
     user_id     SERIAL PRIMARY KEY,

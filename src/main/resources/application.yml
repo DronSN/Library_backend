@@ -5,7 +5,7 @@ spring :
     change-log: classpath*:migrations/master-changelog.yml
   datasource:
     url     : jdbc:postgresql://localhost:5433/library
-    password: greentea2
+    password: greentea
     username: postgres
 mybatis:
 

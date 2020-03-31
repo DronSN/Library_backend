@@ -8,6 +8,8 @@ spring :
     password: greentea2
     username: postgres
 mybatis:
+
   type-handlers-package: ru.relex.library.db.handlers
   configuration:
     map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

@@ -44,7 +44,7 @@ public interface UserMapper {
             "WHERE user_id = #{id}")
     void update(User user);
 
-    @Delete("DELETE FROM users WHERE id = #{id}")
+    @Delete("DELETE FROM users WHERE user_id = #{id}")
     void delete(@Param("id") int id);
 
     /**

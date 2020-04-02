@@ -30,6 +30,10 @@ public final class ConstraintMessage {
         public static final String USER_ID = "USERID";
         public static final String RANK = "RANK";
         public static final String REVIEW = "REVIEW";
+        public static final String TYPE = "TYPE";
+        public static final String FILE = "FILE";
+        public static final String FILETYPE = "FILETYPE";
+        public static final String PAGEGOT = "PAGEGOT";
     }
 
     public static class Constraint {

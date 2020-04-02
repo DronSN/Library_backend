@@ -23,3 +23,19 @@ databaseChangeLog:
           -   sqlFile:
                 path                   : LIBRARY-003.sql
                 relativeToChangelogFile: true
+  -   changeSet:
+        id     : 4
+        author : jbulygina
+        comment: Create e_book table
+        changes:
+          -   sqlFile:
+                path                   : LIBRARY-004.sql
+                relativeToChangelogFile: true
+  -   changeSet:
+        id     : 5
+        author : jbulygina
+        comment: Add data to e_book table
+        changes:
+          -   sqlFile:
+                path                   : LIBRARY-005.sql
+                relativeToChangelogFile: true

@@ -35,7 +35,10 @@ public final class ConstraintMessage {
 		public static final String TYPE = "TYPE";
 		public static final String FILE = "FILE";
 		public static final String FILETYPE = "FILETYPE";
-        public static final String PAGEGOT = "PAGEGOT";    }
+        public static final String PAGEGOT = "PAGEGOT";
+        public static final String PAGEGOAL = "PAGEGOAL";
+        public static final String DATAGOAL = "DATAGOAL";
+    }
 
     public static class Constraint {
         private Constraint() {
@@ -47,5 +50,6 @@ public final class ConstraintMessage {
         public static final String TOO_SHORT = "_TOOSHORT";
         public static final String NOT_POSITIVE = "_NOTPOSITIVE";
         public static final String NOT_FINDED = "_NOTFINDED";
+        public static final String NOT_FIT_FORMAT = "_NOTFITFORMAT";
     }
 }

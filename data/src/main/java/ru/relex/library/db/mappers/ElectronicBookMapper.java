@@ -2,6 +2,7 @@ package ru.relex.library.db.mappers;
 
 import org.apache.ibatis.annotations.*;
 import ru.relex.library.db.model.ElectronicBook;
+import ru.relex.library.db.model.ElectronicBookFile;
 
 import java.util.List;
 
@@ -63,4 +64,14 @@ public interface ElectronicBookMapper {
             statement = "select currval('e_book_e_book_id_seq')",
             resultType = Integer.class)
     void insert(ElectronicBook electronicBook);
+
+    @Update("UPDATE e_book " +
+    "SET file = #{file} " +
+    "WHERE e_book_id = #{electronicBookId}")
+    void uploadBinaryFile(ElectronicBookFile electronicBookFile);
+
+    @Select("SELECT file, file_type " +
+            "FROM e_book u " +
+            "WHERE e_book_id = #{id}")
+    ElectronicBookFile getBookForReadingOnline(int id);
 }

@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 import ru.relex.library.db.mappers.ElectronicBookMapper;
+import ru.relex.library.db.model.ElectronicBookFile;
 import ru.relex.library.services.dto.book.ElectronicBookDto;
+import ru.relex.library.services.dto.book.ElectronicBookFileDto;
 import ru.relex.library.services.mapstruct.ElectronicBookStruct;
 import ru.relex.library.services.service.IElectronicBookService;
 
@@ -53,5 +55,17 @@ public class ElectronicBookServiceImpl implements IElectronicBookService {
     @Override
     public void remove(final int electronicBookId) {
         electronicBookMapper.delete(electronicBookId);
+    }
+
+    @Override
+    public void uploadFile(@Valid final ElectronicBookFileDto fileDto){
+        var file = electronicBookStruct.fromDto(fileDto);
+        electronicBookMapper.uploadBinaryFile(file);
+    }
+
+    @Override
+    public ElectronicBookFileDto getBookForReadingOnline(int id) {
+        ElectronicBookFile file = electronicBookMapper.getBookForReadingOnline(id);
+        return electronicBookStruct.toDto(file);
     }
 }

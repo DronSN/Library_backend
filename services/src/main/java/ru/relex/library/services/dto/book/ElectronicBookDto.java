@@ -44,7 +44,7 @@ public class ElectronicBookDto {
     private byte[] file;
 
     @NotBlank(message = Field.FILETYPE + Constraint.IS_EMPTY)
-    @Size(max = 20,
+    @Size(max = 6,
             message = Field.FILETYPE + Constraint.TOO_LONG)
     private String fileType;
 

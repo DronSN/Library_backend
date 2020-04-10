@@ -6,7 +6,9 @@ import org.mapstruct.MappingTarget;
 import org.springframework.beans.factory.annotation.Autowired;
 import ru.relex.library.db.mappers.BookMapper;
 import ru.relex.library.db.model.ElectronicBook;
+import ru.relex.library.db.model.ElectronicBookFile;
 import ru.relex.library.services.dto.book.ElectronicBookDto;
+import ru.relex.library.services.dto.book.ElectronicBookFileDto;
 
 import java.util.List;
 
@@ -34,4 +36,8 @@ public abstract class ElectronicBookStruct {
     public abstract List<ElectronicBookDto> toDto(List<ElectronicBook> electronicBooks);
 
     public abstract List<ElectronicBook> fromDto(List<ElectronicBookDto> electronicBookDtos);
+
+    public abstract ElectronicBookFile fromDto(ElectronicBookFileDto fileDto);
+
+    public abstract ElectronicBookFileDto toDto(ElectronicBookFile fileDto);
 }

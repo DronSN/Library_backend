@@ -38,6 +38,7 @@ public final class ConstraintMessage {
         public static final String PAGEGOT = "PAGEGOT";
         public static final String PAGEGOAL = "PAGEGOAL";
         public static final String DATAGOAL = "DATAGOAL";
+        public static final String ELECTRONIC_BOOK_ID = "ELECTRONICBOOKID";
     }
 
     public static class Constraint {

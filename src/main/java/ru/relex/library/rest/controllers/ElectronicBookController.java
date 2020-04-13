@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(
-        path = "/electronicbooks",
+        path = "/api/electronicbooks",
         produces = MediaType.APPLICATION_JSON_VALUE
 )
 public class ElectronicBookController {

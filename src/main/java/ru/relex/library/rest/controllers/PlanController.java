@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(
-        path = "/plans",
+        path = "/api/plans",
         produces = MediaType.APPLICATION_JSON_VALUE
 )
 public class PlanController {

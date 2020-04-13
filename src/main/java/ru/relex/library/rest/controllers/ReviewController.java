@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(
-        path = "/reviews",
+        path = "/api/reviews",
         produces = MediaType.APPLICATION_JSON_VALUE
 )
 public class ReviewController {

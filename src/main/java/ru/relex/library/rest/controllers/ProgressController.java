@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(
-        path = "/progress",
+        path = "/api/progress",
         produces = MediaType.APPLICATION_JSON_VALUE
 )
 public class ProgressController {

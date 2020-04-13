@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(
-        path = "/paperbooks",
+        path = "/api/paperbooks",
         produces = MediaType.APPLICATION_JSON_VALUE
 )
 public class PaperBookController {

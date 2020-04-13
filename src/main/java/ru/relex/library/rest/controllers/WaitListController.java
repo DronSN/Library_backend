@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(
-        path = "/waitlists",
+        path = "/api/waitlists",
         produces = MediaType.APPLICATION_JSON_VALUE
 )
 public class WaitListController {

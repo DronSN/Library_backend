@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.relex.library.services.dto.book.ReviewDto;
 import ru.relex.library.services.service.IReviewService;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @RestController
@@ -23,7 +24,7 @@ public class ReviewController {
     }
 
     @GetMapping
-    List<ReviewDto> getBooks(@RequestParam(name = "search", required = false) String search) {
+    List<ReviewDto> getReviews(@RequestParam(name = "search", required = false) String search) {
         return reviewService.findReviews(search);
     }
 
@@ -33,17 +34,20 @@ public class ReviewController {
     }
 
     @PutMapping("/{id}")
+    @RolesAllowed("ROLE_USER")
     ReviewDto update(@PathVariable("id") int id, @RequestBody ReviewDto reviewDto) {
         reviewDto.setId(id);
         return reviewService.update(reviewDto);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RolesAllowed("ROLE_USER")
     ReviewDto create(@RequestBody ReviewDto reviewDto) {
         return reviewService.create(reviewDto);
     }
 
     @DeleteMapping("/{id}")
+    @RolesAllowed("ROLE_USER")
     void delete(@PathVariable("id") int id){
         reviewService.remove(id);
     }

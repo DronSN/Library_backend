@@ -8,6 +8,7 @@ import ru.relex.library.services.dto.book.ElectronicBookDto;
 import ru.relex.library.services.dto.book.ElectronicBookFileDto;
 import ru.relex.library.services.service.IElectronicBookService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
@@ -38,22 +39,26 @@ public class ElectronicBookController {
     }
 
     @PutMapping(path = "/{id}")
+    @RolesAllowed("ROLE_ADMIN")
     ElectronicBookDto update(@PathVariable("id") int id, @RequestBody ElectronicBookDto electronicBook) {
         electronicBook.setId(id);
         return electronicBookService.update(electronicBook);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RolesAllowed("ROLE_ADMIN")
     ElectronicBookDto create(@RequestBody ElectronicBookDto electronicBook) {
         return electronicBookService.create(electronicBook);
     }
 
     @DeleteMapping("/{id}")
+    @RolesAllowed("ROLE_ADMIN")
     void delete(@PathVariable("id") int id){
         electronicBookService.remove(id);
     }
 
     @PutMapping(path = "/{id}/attach", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @RolesAllowed("ROLE_ADMIN")
     void attachFileToBook(@PathVariable("id") int id, @RequestParam(value = "file") MultipartFile file) {
         try {
             byte[] newFile = file.getBytes();

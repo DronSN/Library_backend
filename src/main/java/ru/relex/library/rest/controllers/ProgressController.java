@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.relex.library.services.dto.user.ProgressDto;
 import ru.relex.library.services.service.IProgressService;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @RestController
@@ -33,11 +34,13 @@ public class ProgressController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RolesAllowed("ROLE_USER")
     ProgressDto create(@RequestBody ProgressDto progressDto) {
         return progressService.create(progressDto);
     }
 
     @DeleteMapping("/{id}")
+    @RolesAllowed("ROLE_USER")
     void delete(@PathVariable("id") int id){
         progressService.remove(id);
     }

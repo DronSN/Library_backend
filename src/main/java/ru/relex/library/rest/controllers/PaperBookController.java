@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.relex.library.services.dto.book.PaperBookDto;
 import ru.relex.library.services.service.IPaperBookService;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @RestController
@@ -33,17 +34,20 @@ public class PaperBookController {
     }
 
     @PutMapping("/{id}")
+    @RolesAllowed("ROLE_ADMIN")
     PaperBookDto update(@PathVariable("id") int id, @RequestBody PaperBookDto paperBook) {
         paperBook.setId(id);
         return paperBookService.update(paperBook);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RolesAllowed("ROLE_ADMIN")
     PaperBookDto create(@RequestBody PaperBookDto paperBook) {
         return paperBookService.create(paperBook);
     }
 
     @DeleteMapping("/{id}")
+    @RolesAllowed("ROLE_ADMIN")
     void delete(@PathVariable("id") int id){
         paperBookService.remove(id);
     }

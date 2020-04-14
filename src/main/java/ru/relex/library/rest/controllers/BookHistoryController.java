@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.relex.library.services.dto.booksmoving.BookHistoryDto;
 import ru.relex.library.services.service.IBookHistoryService;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @RestController
@@ -33,17 +34,20 @@ public class BookHistoryController {
     }
 
     @PutMapping("/{id}")
+    @RolesAllowed("ROLE_ADMIN")
     BookHistoryDto update(@PathVariable("id") int id, @RequestBody BookHistoryDto bookHistoryDto) {
         bookHistoryDto.setId(id);
         return bookHistoryService.update(bookHistoryDto);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RolesAllowed("ROLE_ADMIN")
     BookHistoryDto create(@RequestBody BookHistoryDto bookHistoryDto) {
         return bookHistoryService.create(bookHistoryDto);
     }
 
     @DeleteMapping("/{id}")
+    @RolesAllowed("ROLE_ADMIN")
     void delete(@PathVariable("id") int id){
         bookHistoryService.remove(id);
     }

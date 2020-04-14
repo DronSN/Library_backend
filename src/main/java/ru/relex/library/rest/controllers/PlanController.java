@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.relex.library.services.dto.user.PlanDto;
 import ru.relex.library.services.service.IPlanService;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @RestController
@@ -33,17 +34,20 @@ public class PlanController {
     }
 
     @PutMapping("/{id}")
+    @RolesAllowed("ROLE_USER")
     PlanDto update(@PathVariable("id") int id, @RequestBody PlanDto planDto) {
         planDto.setId(id);
         return planService.update(planDto);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RolesAllowed("ROLE_USER")
     PlanDto create(@RequestBody PlanDto planDto) {
         return planService.create(planDto);
     }
 
     @DeleteMapping("/{id}")
+    @RolesAllowed("ROLE_USER")
     void delete(@PathVariable("id") int id){
         planService.remove(id);
     }

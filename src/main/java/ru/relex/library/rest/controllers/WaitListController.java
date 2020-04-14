@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.relex.library.services.dto.booksmoving.WaitListDto;
 import ru.relex.library.services.service.IWaitListService;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @RestController
@@ -33,17 +34,20 @@ public class WaitListController {
     }
 
     @PutMapping("/{id}")
+    @RolesAllowed("ROLE_ADMIN")
     WaitListDto update(@PathVariable("id") int id, @RequestBody WaitListDto waitListDto) {
         waitListDto.setId(id);
         return waitListService.update(waitListDto);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RolesAllowed("ROLE_ADMIN")
     WaitListDto create(@RequestBody WaitListDto waitListDto) {
         return waitListService.create(waitListDto);
     }
 
     @DeleteMapping("/{id}")
+    @RolesAllowed("ROLE_ADMIN")
     void delete(@PathVariable("id") int id){
         waitListService.remove(id);
     }

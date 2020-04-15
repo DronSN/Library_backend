@@ -1,8 +1,17 @@
 package ru.relex.commons.model;
 
-public class LoggedUser {
+public class LoggedUser implements CurrentUser{
+    int id;
     Role  role;
     private String username;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public LoggedUser(Role role, String username) {
         this.role = role;

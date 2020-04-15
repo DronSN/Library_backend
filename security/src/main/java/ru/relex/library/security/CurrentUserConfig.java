@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.context.WebApplicationContext;
 import ru.relex.commons.model.CurrentUser;
+import ru.relex.commons.model.LoggedUser;
 
 @Configuration
 public class CurrentUserConfig {
@@ -21,6 +22,10 @@ public class CurrentUserConfig {
         if (principal == null) {
             throw new IllegalStateException("Current user must be set");
         }
-        return (CurrentUser) principal;
+        if(!(principal instanceof CurrentUser)){
+            return new LoggedUser(null, null);
+        } else {
+            return (CurrentUser) principal;
+        }
     }
 }

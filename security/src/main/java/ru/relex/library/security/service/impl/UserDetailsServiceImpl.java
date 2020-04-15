@@ -23,7 +23,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         var user = mapper.findUserByUsername(username);
         if (user == null) {
-            return null;
+            throw new UsernameNotFoundException("User " + username + "not found");
         }
         return new UserDetailsImpl(user);
     }

@@ -24,7 +24,7 @@ public class UserController {
     }
 
     @GetMapping
-    @RolesAllowed("ROLE_ADMIN")
+    //@RolesAllowed("ROLE_ADMIN")
     List<UserDto> getUsers(@RequestParam(name = "search", required = false) String search) {
         return userService.findUsers(search);
     }

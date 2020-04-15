@@ -20,7 +20,7 @@ public class UserDetailsImpl implements UserDetails, CurrentUser {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Set.of(new SimpleGrantedAuthority("ROLE_" + user.getRole()));
+        return Set.of(new SimpleGrantedAuthority("ROLE_" + user.getRole().name()));
     }
 
     @Override

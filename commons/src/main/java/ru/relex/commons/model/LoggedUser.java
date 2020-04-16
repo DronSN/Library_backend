@@ -1,8 +1,8 @@
 package ru.relex.commons.model;
 
 public class LoggedUser implements CurrentUser{
-    int id;
-    Role  role;
+    private int id;
+    private Role  role;
     private String username;
 
     public int getId() {

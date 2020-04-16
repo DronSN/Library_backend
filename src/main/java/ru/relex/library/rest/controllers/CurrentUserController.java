@@ -5,6 +5,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.relex.commons.model.AuthenticatedUser;
 import ru.relex.commons.model.CurrentUser;
 import ru.relex.commons.model.LoggedUser;
 
@@ -24,14 +25,18 @@ public class CurrentUserController {
     }
 
     @GetMapping
-    LoggedUser getUser() {
+    AuthenticatedUser getUser() {
+        boolean authenticated;
         if (!(currentUser instanceof CurrentUser)){
             return null;
         } else {
-            return new LoggedUser(currentUser.getRole(), currentUser.getUsername());
+            LoggedUser loggedUser = new LoggedUser(currentUser.getRole(), currentUser.getUsername());
+            if (currentUser.getUsername() == null){
+                authenticated = false;
+            } else {
+                authenticated = true;
+            }
+            return new AuthenticatedUser(authenticated, loggedUser);
         }
-
-
     }
-
 }

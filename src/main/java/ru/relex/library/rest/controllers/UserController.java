@@ -3,6 +3,7 @@ package ru.relex.library.rest.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import ru.relex.commons.model.Role;
 import ru.relex.library.services.dto.user.UserDto;
 import ru.relex.library.services.service.IUserService;
 
@@ -24,10 +25,16 @@ public class UserController {
     }
 
     @GetMapping
-    //@RolesAllowed("ROLE_ADMIN")
+    @RolesAllowed("ROLE_ADMIN")
     List<UserDto> getUsers(@RequestParam(name = "search", required = false) String search) {
         return userService.findUsers(search);
     }
+
+    @GetMapping("/isvalid/login")
+    boolean isValidUsername(@RequestParam(name = "login") String login) {
+        return userService.isValidUsername(login);
+    }
+
 
     @GetMapping("/{id}")
     @RolesAllowed("ROLE_ADMIN")
@@ -47,4 +54,11 @@ public class UserController {
     UserDto create(@RequestBody UserDto user) {
         return userService.create(user);
     }
+
+    @PostMapping(path = "/registration", consumes = MediaType.APPLICATION_JSON_VALUE)
+    UserDto createRegularUser(@RequestBody UserDto user) {
+        user.setRole(Role.USER);
+        return userService.createRegularUser(user);
+    }
+
 }

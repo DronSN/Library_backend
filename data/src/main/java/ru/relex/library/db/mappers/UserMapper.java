@@ -34,6 +34,18 @@ public interface UserMapper {
             "WHERE user_id = #{id}")
     User findById(@Param("id") int id);
 
+    @Select("SELECT " +
+            "user_id AS id," +
+            "first_name, " +
+            "last_name, " +
+            "middle_name, " +
+            "username, " +
+            "role_id as role " +
+            "FROM users u " +
+            "WHERE username = #{username}")
+    User findByUserName(@Param("username") String username);
+
+
     @Update("UPDATE users " +
             "SET first_name = #{firstName}," +
             "last_name = #{lastName}," +

@@ -39,3 +39,11 @@ databaseChangeLog:
           -   sqlFile:
                 path                   : LIBRARY-005.sql
                 relativeToChangelogFile: true
+  -   changeSet:
+        id     : 6
+        author : askvortsov
+        comment: Set nullable columns first and last name of users
+        changes:
+          -   sqlFile:
+                path                   : LIBRARY-006.sql
+                relativeToChangelogFile: true

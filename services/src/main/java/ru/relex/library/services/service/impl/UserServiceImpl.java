@@ -3,7 +3,9 @@ package ru.relex.library.services.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
+import ru.relex.commons.model.AuthenticatedUser;
 import ru.relex.commons.model.CurrentUser;
+import ru.relex.commons.model.LoggedUser;
 import ru.relex.library.db.mappers.UserMapper;
 import ru.relex.library.services.dto.user.UserDto;
 import ru.relex.library.services.mapstruct.UserStruct;
@@ -65,5 +67,37 @@ public class UserServiceImpl implements IUserService {
   @Override
   public void remove(final int userId) {
     userMapper.delete(userId);
+  }
+
+  @Override
+  public boolean isValidUsername(String username) {
+    if (username.strip().equals("")) {
+      return false;
+    } else {
+      var user = userMapper.findByUserName(username);
+      return user == null;
+    }
+  }
+
+  @Override
+  public UserDto createRegularUser(@Valid UserDto userDto) {
+    //userDto.setRole(Role.USER);
+    return create(userDto);
+  }
+
+  @Override
+  public AuthenticatedUser getCurrentUser() {
+    boolean authenticated;
+    if (!(currentUser instanceof CurrentUser)){
+      return null;
+    } else {
+      LoggedUser loggedUser = new LoggedUser(currentUser.getRole(), currentUser.getUsername());
+      if (currentUser.getUsername() == null){
+        authenticated = false;
+      } else {
+        authenticated = true;
+      }
+      return new AuthenticatedUser(authenticated, loggedUser);
+    }
   }
 }

@@ -1,5 +1,6 @@
 package ru.relex.library.services.service;
 
+import ru.relex.commons.model.AuthenticatedUser;
 import ru.relex.library.services.dto.user.UserDto;
 
 import javax.validation.Valid;
@@ -16,5 +17,11 @@ public interface IUserService {
   UserDto findById(int id);
 
   void remove(int userId);
+
+  boolean isValidUsername(String username);
+
+  UserDto createRegularUser(@Valid UserDto userDto);
+
+  AuthenticatedUser getCurrentUser();
 
 }

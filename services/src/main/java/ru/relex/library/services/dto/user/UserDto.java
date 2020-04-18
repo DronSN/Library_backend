@@ -1,8 +1,8 @@
 package ru.relex.library.services.dto.user;
 
 import ru.relex.commons.model.Role;
+import ru.relex.library.services.validator.UsernameUnique;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -17,6 +17,7 @@ public class UserDto {
   @NotBlank(message = Field.USERNAME + Constraint.IS_EMPTY)
   @Size(max = 64,
         message = Field.USERNAME + Constraint.TOO_LONG)
+  @UsernameUnique
   private String username;
 
   @Size(min = 8, message = Field.PASSWORD + Constraint.TOO_SHORT)
@@ -27,8 +28,8 @@ public class UserDto {
   @NotNull(message = Field.ROLE + Constraint.IS_NULL)
   private Role role;
 
-  @Valid
-  @NotNull(message = Field.PERSONAL_INFO + Constraint.IS_NULL)
+  //@Valid
+  //@NotNull(message = Field.PERSONAL_INFO + Constraint.IS_NULL)
   private PersonalInfoDto personalInfo;
 
   public Integer getId() {

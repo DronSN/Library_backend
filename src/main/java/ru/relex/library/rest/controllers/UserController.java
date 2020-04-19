@@ -55,7 +55,7 @@ public class UserController {
         return userService.create(user);
     }
 
-    @PostMapping(path = "/registration", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/new/registration", consumes = MediaType.APPLICATION_JSON_VALUE)
     UserDto createRegularUser(@RequestBody UserDto user) {
         user.setRole(Role.USER);
         return userService.createRegularUser(user);

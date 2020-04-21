@@ -10,6 +10,7 @@ import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(
         path = "/api/books",
         produces = MediaType.APPLICATION_JSON_VALUE

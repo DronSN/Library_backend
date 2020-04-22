@@ -47,3 +47,21 @@ databaseChangeLog:
           -   sqlFile:
                 path                   : LIBRARY-006.sql
                 relativeToChangelogFile: true
+  -   changeSet:
+        id     : 7
+        author : ababak
+        comment: Adding new columns created_by, updated_by, created_at, updated_at and triggers.
+        changes:
+          -   sqlFile:
+                path                   : LIBRARY-007.sql
+                relativeToChangelogFile: true
+                splitStatements: false
+  -   changeSet:
+        id     : 8
+        author : ababak
+        comment: Adding views and triggers.
+        changes:
+          -   sqlFile:
+                path                   : LIBRARY-008.sql
+                relativeToChangelogFile: true
+                splitStatements: false

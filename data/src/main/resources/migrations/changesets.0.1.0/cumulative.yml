@@ -56,3 +56,12 @@ databaseChangeLog:
                 path                   : LIBRARY-007.sql
                 relativeToChangelogFile: true
                 splitStatements: false
+  -   changeSet:
+        id     : 8
+        author : ababak
+        comment: Adding views and triggers.
+        changes:
+          -   sqlFile:
+                path                   : LIBRARY-008.sql
+                relativeToChangelogFile: true
+                splitStatements: false

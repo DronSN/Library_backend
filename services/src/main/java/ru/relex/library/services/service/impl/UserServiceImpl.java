@@ -8,7 +8,9 @@ import ru.relex.commons.model.CurrentUser;
 import ru.relex.commons.model.LoggedUser;
 import ru.relex.library.db.mappers.UserMapper;
 import ru.relex.library.services.dto.user.UserDto;
+import ru.relex.library.services.dto.user.UserUpdateDto;
 import ru.relex.library.services.mapstruct.UserStruct;
+import ru.relex.library.services.mapstruct.UserUpdateStruct;
 import ru.relex.library.services.service.IPasswordEncoderService;
 import ru.relex.library.services.service.IUserService;
 
@@ -21,6 +23,7 @@ public class UserServiceImpl implements IUserService {
 
   private final UserMapper userMapper;
   private final UserStruct userStruct;
+  private final UserUpdateStruct userUpdateStruct;
   private final IPasswordEncoderService passwordEncoderService;
   private final CurrentUser currentUser;
 
@@ -28,10 +31,12 @@ public class UserServiceImpl implements IUserService {
   public UserServiceImpl(
           final UserMapper userMapper,
           final UserStruct userStruct,
+          final UserUpdateStruct userUpdateStruct,
           final IPasswordEncoderService passwordEncoderService,
           final CurrentUser currentUser) {
     this.userMapper = userMapper;
     this.userStruct = userStruct;
+    this.userUpdateStruct = userUpdateStruct;
     this.passwordEncoderService = passwordEncoderService;
     this.currentUser = currentUser;
   }
@@ -52,10 +57,10 @@ public class UserServiceImpl implements IUserService {
   }
 
   @Override
-  public UserDto update(@Valid final UserDto userDto) {
-    var user = userStruct.fromDto(userDto);
+  public UserUpdateDto update(@Valid final UserUpdateDto userDto) {
+    var user = userUpdateStruct.fromDto(userDto);
     userMapper.update(user);
-    return userStruct.toDto(user);
+    return userUpdateStruct.toDto(user);
   }
 
   @Override
@@ -91,7 +96,7 @@ public class UserServiceImpl implements IUserService {
     if (!(currentUser instanceof CurrentUser)){
       return null;
     } else {
-      LoggedUser loggedUser = new LoggedUser(currentUser.getRole(), currentUser.getUsername());
+      LoggedUser loggedUser = new LoggedUser(currentUser.getRole(), currentUser.getUsername(), currentUser.getId());
       if (currentUser.getUsername() == null){
         authenticated = false;
       } else {

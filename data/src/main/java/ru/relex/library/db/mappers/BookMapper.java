@@ -19,7 +19,7 @@ public interface BookMapper {
                     "year " +
                     "FROM books u " +
                     "WHERE #{search:VARCHAR} IS NULL " +
-                    "OR CONCAT_WS('$', name, author) LIKE CONCAT('%', #{search:VARCHAR}, '%')"
+                    "OR CONCAT_WS('$', LOWER(name), LOWER(author)) LIKE LOWER(CONCAT('%', #{search:VARCHAR}, '%'))"
     )
     List<Book> getBooks(@Param("search") String search);
 

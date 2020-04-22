@@ -5,6 +5,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import ru.relex.commons.model.Role;
 import ru.relex.library.services.dto.user.UserDto;
+import ru.relex.library.services.dto.user.UserUpdateDto;
 import ru.relex.library.services.service.IUserService;
 
 import javax.annotation.security.RolesAllowed;
@@ -37,14 +38,12 @@ public class UserController {
 
 
     @GetMapping("/{id}")
-    @RolesAllowed("ROLE_ADMIN")
     UserDto findById(@PathVariable("id") int id) {
         return userService.findById(id);
     }
 
     @PutMapping("/{id}")
-    @RolesAllowed("ROLE_ADMIN")
-    UserDto update(@PathVariable("id") int id, @RequestBody UserDto user) {
+    UserUpdateDto update(@PathVariable("id") int id, @RequestBody UserUpdateDto user) {
         user.setId(id);
         return userService.update(user);
     }

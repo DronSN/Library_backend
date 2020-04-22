@@ -13,9 +13,10 @@ public class LoggedUser implements CurrentUser{
         this.id = id;
     }
 
-    public LoggedUser(Role role, String username) {
+    public LoggedUser(Role role, String username, int id) {
         this.role = role;
         this.username = username;
+        this.id = id;
     }
 
     public Role getRole() {

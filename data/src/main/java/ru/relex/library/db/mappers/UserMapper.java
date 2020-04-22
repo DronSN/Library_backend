@@ -49,10 +49,8 @@ public interface UserMapper {
     @Update("UPDATE users " +
             "SET first_name = #{firstName}," +
             "last_name = #{lastName}," +
-            "middle_name = #{middleName}," +
-            "username = #{username}," +
-            "password = #{password}," +
-            "role_id = #{role} " +
+            "middle_name = #{middleName}" +
+            //"role_id = #{role} " +
             "WHERE user_id = #{id}")
     void update(User user);
 

@@ -3,6 +3,7 @@ import org.springframework.boot.gradle.tasks.bundling.BootJar
 plugins {
     java
     id("org.springframework.boot") version "2.2.5.RELEASE"
+    id("online.colaba.docker") version "0.1.4"
 }
 
 allprojects {
@@ -45,3 +46,4 @@ val bootJar: BootJar by tasks
 bootJar.apply {
     launchScript()
 }
+

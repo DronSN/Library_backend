@@ -23,7 +23,7 @@ public class CurrentUserConfig {
             throw new IllegalStateException("Current user must be set");
         }
         if(!(principal instanceof CurrentUser)){
-            return new LoggedUser(null, null);
+            return new LoggedUser(null, null, 0);
         } else {
             return (CurrentUser) principal;
         }

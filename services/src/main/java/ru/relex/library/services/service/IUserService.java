@@ -2,6 +2,7 @@ package ru.relex.library.services.service;
 
 import ru.relex.commons.model.AuthenticatedUser;
 import ru.relex.library.services.dto.user.UserDto;
+import ru.relex.library.services.dto.user.UserUpdateDto;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -12,7 +13,7 @@ public interface IUserService {
 
   UserDto create(@Valid UserDto userDto);
 
-  UserDto update(@Valid UserDto userDto);
+  UserUpdateDto update(@Valid UserUpdateDto userDto);
 
   UserDto findById(int id);
 

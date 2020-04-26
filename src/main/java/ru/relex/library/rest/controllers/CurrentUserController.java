@@ -10,7 +10,6 @@ import ru.relex.commons.model.AuthenticatedUser;
 import ru.relex.library.services.service.IUserService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(
         path = "/api/currentuser",
         produces = MediaType.APPLICATION_JSON_VALUE

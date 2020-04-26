@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(
         path = "/api/electronicbooks",
         produces = MediaType.APPLICATION_JSON_VALUE

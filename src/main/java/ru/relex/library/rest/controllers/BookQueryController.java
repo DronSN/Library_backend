@@ -9,7 +9,6 @@ import ru.relex.library.services.service.IBookQueryService;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(
         path = "/api/query/popbooks",
         produces = MediaType.APPLICATION_JSON_VALUE
